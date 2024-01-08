@@ -1,0 +1,41 @@
+<template>
+    <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleSuccess} onsubmit={handleSubmit}
+        onload={handleLoad}>
+        <template if:false={areDetailsVisible}>
+            <div>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <lightning-messages>
+        </lightning-messages>
+
+        <template if:true={areDetailsVisible}>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name='Name'></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name='Amount'></lightning-input-field>
+
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name='StageName'></lightning-input-field>
+
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name='CloseDate'></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name='AccountId' value={recordId}></lightning-input-field>
+                </div>
+            </div>
+
+            <div class="slds-var-m-around_large slds-text-align_center">
+                <lightning-button variant="brand" type="submit" label="Create Opportunity">
+                </lightning-button>
+            </div>
+        </template>
+    </lightning-record-edit-form>
+</template>
