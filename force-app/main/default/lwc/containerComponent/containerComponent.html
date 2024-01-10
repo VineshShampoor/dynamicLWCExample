@@ -3,16 +3,13 @@
     <lightning-card title="Dynamic LWC Demo">
 
         <div class="slds-grid slds-wrap slds-var-m-around_small">
-
             <div class="slds-col slds-size_1-of-1 slds-var-m-bottom_x-small">
                 <lightning-combobox class="slds-size_6-of-12" label="Form" value={value} placeholder="Select"
                     options={options} onchange={handleChange} required></lightning-combobox>
             </div>
-
             <div class="slds-col slds-size_1-of-1">
-                <lwc:component lwc:is={formCtor} record-id={recordId}></lwc:component>
+                <lwc:component lwc:is={formCtor} record-id={recordId} onrecordcreated={handleNewRecord}></lwc:component>
             </div>
-
         </div>
     </lightning-card>
 

@@ -6,6 +6,15 @@ export default class CaseForm extends LightningElement {
 
     handleSuccess(event) {
         console.log('onsuccess event recordEditForm', event.detail.id)
+
+        const selectEvent = new CustomEvent('recordcreated', {
+            detail: { 
+                objecttype: 'case',
+                recordid: event.detail.id
+            }
+        });
+        this.dispatchEvent(selectEvent);
+        console.log('Hello');
     }
     handleSubmit(event) {
         console.log('onsubmit event recordEditForm' + event.detail.fields);

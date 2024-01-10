@@ -5,7 +5,14 @@ export default class ContactForm extends LightningElement {
     @api recordId;
 
     handleSuccess(event) {
-        console.log('onsuccess event recordEditForm',event.detail.id)
+        console.log('onsuccess event recordEditForm',event.detail.id);
+        const selectEvent = new CustomEvent('recordcreated', {
+            detail: { 
+                objecttype: 'contact',
+                recordid: event.detail.id
+            }
+        });
+        this.dispatchEvent(selectEvent);
     }
     handleSubmit(event) {
         console.log('onsubmit event recordEditForm'+ event.detail.fields);
